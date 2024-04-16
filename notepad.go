@@ -1,6 +1,9 @@
 package notepad
 
-import "os/exec"
+import (
+    "errors"
+    "os/exec"
+)
 
 // Open opens Notepad.exe on Windows.
 func Open() error {
@@ -9,5 +12,8 @@ func Open() error {
 
     // Execute the command
     err := cmd.Run()
-    return err
+    if err != nil {
+        return errors.New("failed to open Notepad")
+    }
+    return nil
 }
