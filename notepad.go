@@ -1,19 +1,13 @@
-// Package notepad provides a function to open Notepad.
 package notepad
 
-import (
-    "errors"
-    "os/exec"
-    "runtime"
-)
+import "os/exec"
 
-// Open opens Notepad on the user's system.
+// Open opens Notepad.exe on Windows.
 func Open() error {
-    var cmd *exec.Cmd
-    if runtime.GOOS == "windows" {
-        cmd = exec.Command("notepad")
-    } else {
-        return errors.New("unsupported operating system")
-    }
-    return cmd.Run()
+    // Command to open Notepad.exe
+    cmd := exec.Command("notepad.exe")
+
+    // Execute the command
+    err := cmd.Run()
+    return err
 }
