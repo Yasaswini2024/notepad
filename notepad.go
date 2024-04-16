@@ -2,6 +2,7 @@
 package notepad
 
 import (
+    "errors"
     "os/exec"
     "runtime"
 )
